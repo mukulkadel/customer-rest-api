@@ -1,0 +1,236 @@
+2019-11-12 11:40:23.142  INFO 69244 --- [main] com.infy.CustomerDetailsApplication      : Starting CustomerDetailsApplication on BLRKEC402961D with PID 69244 (C:\Users\mukul.kadel\Documents\workspace-spring-tool-suite\customer-details\target\classes started by mukul.kadel in C:\Users\mukul.kadel\Documents\workspace-spring-tool-suite\customer-details)
+2019-11-12 11:40:23.612  INFO 69244 --- [main] com.infy.CustomerDetailsApplication      : No active profile set, falling back to default profiles: default
+2019-11-12 11:40:39.477  INFO 69244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-12 11:40:41.132  INFO 69244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1603ms. Found 1 repository interfaces.
+2019-11-12 11:40:50.765  INFO 69244 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-11-12 11:40:51.057  INFO 69244 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-12 11:40:51.059  INFO 69244 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-11-12 11:40:52.895  INFO 69244 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-12 11:40:52.897  INFO 69244 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 26206 ms
+2019-11-12 11:40:59.701  INFO 69244 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-11-12 11:41:02.148  INFO 69244 --- [cluster-ClusterId{value='5dca4cf3d4c544704360a11b', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:72}] to localhost:27017
+2019-11-12 11:41:02.248  INFO 69244 --- [cluster-ClusterId{value='5dca4cf3d4c544704360a11b', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 3]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=9952398}
+2019-11-12 11:41:03.276  WARN 69244 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-12 11:41:03.279  WARN 69244 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-12 11:41:05.044  WARN 69244 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-12 11:41:05.045  WARN 69244 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-12 11:41:05.492  WARN 69244 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2019-11-12 11:41:06.201  INFO 69244 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:74}] to localhost:27017
+2019-11-12 11:41:10.501  INFO 69244 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-12 11:41:13.493  INFO 69244 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-11-12 11:41:13.510  INFO 69244 --- [main] com.infy.CustomerDetailsApplication      : Started CustomerDetailsApplication in 62.7 seconds (JVM running for 81.262)
+2019-11-12 13:52:42.808  INFO 69244 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-12 13:52:42.810  INFO 69244 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-11-12 13:52:42.823  INFO 69244 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2019-11-12 13:52:43.205  INFO 69244 --- [http-nio-8080-exec-2] com.infy.controller.CustomerController   : Begin: addCustomer()
+2019-11-12 13:52:44.139  INFO 69244 --- [http-nio-8080-exec-2] com.infy.service.CustomerServiceImpl     : Begin: addCustomer()
+2019-11-12 13:52:44.141  INFO 69244 --- [http-nio-8080-exec-2] com.infy.util.Converter                  : Begin: toCustomer()
+2019-11-12 13:52:44.143  INFO 69244 --- [http-nio-8080-exec-2] com.infy.util.Converter                  : End: toCustomerEntity()
+2019-11-12 13:52:44.253 DEBUG 69244 --- [http-nio-8080-exec-2] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [customerId, emailAddress, password, firstName, lastName, phoneNumber, _class] in collection: customer
+2019-11-12 13:52:44.388 ERROR 69244 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DuplicateKeyException: E11000 duplicate key error collection: customerdb.customer index: emailAddress dup key: { : "john@infy.com" }; nested exception is com.mongodb.MongoWriteException: E11000 duplicate key error collection: customerdb.customer index: emailAddress dup key: { : "john@infy.com" }] with root cause
+
+com.mongodb.MongoWriteException: E11000 duplicate key error collection: customerdb.customer index: emailAddress dup key: { : "john@infy.com" }
+	at com.mongodb.client.internal.MongoCollectionImpl.executeSingleWriteRequest(MongoCollectionImpl.java:1055) ~[mongodb-driver-3.11.1.jar:na]
+	at com.mongodb.client.internal.MongoCollectionImpl.executeInsertOne(MongoCollectionImpl.java:498) ~[mongodb-driver-3.11.1.jar:na]
+	at com.mongodb.client.internal.MongoCollectionImpl.insertOne(MongoCollectionImpl.java:482) ~[mongodb-driver-3.11.1.jar:na]
+	at com.mongodb.client.internal.MongoCollectionImpl.insertOne(MongoCollectionImpl.java:476) ~[mongodb-driver-3.11.1.jar:na]
+	at org.springframework.data.mongodb.core.MongoTemplate.lambda$insertDocument$16(MongoTemplate.java:1500) ~[spring-data-mongodb-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate$$Lambda$783.000000000FA47320.doInCollection(Unknown Source) ~[na:na]
+	at org.springframework.data.mongodb.core.MongoTemplate.execute(MongoTemplate.java:585) ~[spring-data-mongodb-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate.insertDocument(MongoTemplate.java:1494) ~[spring-data-mongodb-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate.doInsert(MongoTemplate.java:1294) ~[spring-data-mongodb-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at org.springframework.data.mongodb.core.MongoTemplate.insert(MongoTemplate.java:1226) ~[spring-data-mongodb-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at org.springframework.data.mongodb.repository.support.SimpleMongoRepository.save(SimpleMongoRepository.java:84) ~[spring-data-mongodb-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:371) ~[spring-data-commons-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:204) ~[spring-data-commons-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:657) ~[spring-data-commons-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.doInvoke(RepositoryFactorySupport.java:621) ~[spring-data-commons-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.invoke(RepositoryFactorySupport.java:605) ~[spring-data-commons-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80) ~[spring-data-commons-2.2.0.RELEASE.jar:2.2.0.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:93) ~[spring-aop-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at com.sun.proxy.$Proxy75.save(Unknown Source) ~[na:na]
+	at com.infy.service.CustomerServiceImpl.addCustomer(CustomerServiceImpl.java:35) ~[classes/:na]
+	at com.infy.controller.CustomerController.addCustomer(CustomerController.java:62) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_202]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_202]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.lang.Thread.run(Thread.java:813) [na:1.8.0_202]
+
+2019-11-12 13:53:01.792  WARN 69244 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in org.springframework.http.ResponseEntity<com.infy.dto.Customer> com.infy.controller.CustomerController.addCustomer(com.infy.dto.Customer): [Field error in object 'customer' on field 'emailAddress': rejected value [null]; codes [NotBlank.customer.emailAddress,NotBlank.emailAddress,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [customer.emailAddress,emailAddress]; arguments []; default message [emailAddress]]; default message [Email id required!]] ]
+2019-11-12 14:35:00.679  INFO 69244 --- [RMI TCP Connection(348)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-11-12 14:35:00.688  INFO 69244 --- [RMI TCP Connection(348)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-12 14:35:00.698  INFO 69244 --- [RMI TCP Connection(348)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:74}] to localhost:27017 because the pool has been closed.
+2019-11-12 14:38:15.654  INFO 80944 --- [main] com.infy.CustomerDetailsApplication      : Starting CustomerDetailsApplication on BLRKEC402961D with PID 80944 (C:\Users\mukul.kadel\Documents\workspace-spring-tool-suite\customer-details\target\classes started by mukul.kadel in C:\Users\mukul.kadel\Documents\workspace-spring-tool-suite\customer-details)
+2019-11-12 14:38:15.665  INFO 80944 --- [main] com.infy.CustomerDetailsApplication      : No active profile set, falling back to default profiles: default
+2019-11-12 14:38:20.157  INFO 80944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-11-12 14:38:20.369  INFO 80944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 197ms. Found 1 repository interfaces.
+2019-11-12 14:38:21.669  INFO 80944 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-11-12 14:38:21.684  INFO 80944 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-11-12 14:38:21.685  INFO 80944 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2019-11-12 14:38:21.917  INFO 80944 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-11-12 14:38:21.918  INFO 80944 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 5892 ms
+2019-11-12 14:38:22.729  INFO 80944 --- [main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2019-11-12 14:38:23.021  INFO 80944 --- [cluster-ClusterId{value='5dca7686dbedf106dd9dba5e', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:77}] to localhost:27017
+2019-11-12 14:38:23.120  INFO 80944 --- [cluster-ClusterId{value='5dca7686dbedf106dd9dba5e', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 0, 3]}, minWireVersion=0, maxWireVersion=7, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=94766730}
+2019-11-12 14:38:23.408  WARN 80944 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-12 14:38:23.409  WARN 80944 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-12 14:38:23.890  WARN 80944 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class java.time.Instant as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-12 14:38:23.891  WARN 80944 --- [main] o.s.data.convert.CustomConversions       : Registering converter from class java.time.Instant to class java.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might wanna check you annotation setup at the converter implementation.
+2019-11-12 14:38:24.155  WARN 80944 --- [main] .m.c.i.MongoPersistentEntityIndexCreator : Automatic index creation will be disabled by default as of Spring Data MongoDB 3.x.
+	Please use 'MongoMappingContext#setAutoIndexCreation(boolean)' or override 'MongoConfigurationSupport#autoIndexCreation()' to be explicit.
+	However, we recommend setting up indices manually in an application ready block. You may use index derivation there as well.
+
+	> -----------------------------------------------------------------------------------------
+	> @EventListener(ApplicationReadyEvent.class)
+	> public void initIndicesAfterStartup() {
+	>
+	>     IndexOperations indexOps = mongoTemplate.indexOps(DomainType.class);
+	>
+	>     IndexResolver resolver = new MongoPersistentEntityIndexResolver(mongoMappingContext);
+	>     resolver.resolveIndexFor(DomainType.class).forEach(indexOps::ensureIndex);
+	> }
+	> -----------------------------------------------------------------------------------------
+
+2019-11-12 14:38:24.275  INFO 80944 --- [main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:78}] to localhost:27017
+2019-11-12 14:38:25.159  INFO 80944 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-11-12 14:38:25.827  INFO 80944 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-11-12 14:38:25.833  INFO 80944 --- [main] com.infy.CustomerDetailsApplication      : Started CustomerDetailsApplication in 12.044 seconds (JVM running for 13.644)
+2019-11-12 14:38:32.246  INFO 80944 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-11-12 14:38:32.247  INFO 80944 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-11-12 14:38:32.267  INFO 80944 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 19 ms
+2019-11-12 14:38:32.903  INFO 80944 --- [http-nio-8080-exec-2] com.infy.controller.CustomerController   : Begin: addCustomer()
+2019-11-12 14:38:33.885 ERROR 80944 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 Internal Server Error] with root cause
+
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 Internal Server Error
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:79) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:125) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:102) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:785) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:743) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:677) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.client.RestTemplate.postForObject(RestTemplate.java:421) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at com.infy.controller.CustomerController.addCustomer(CustomerController.java:61) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_202]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_202]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_202]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_202]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.0.RELEASE.jar:5.2.0.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [na:1.8.0_202]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [na:1.8.0_202]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.27.jar:9.0.27]
+	at java.lang.Thread.run(Thread.java:813) [na:1.8.0_202]
+
+2019-11-12 14:39:06.909  INFO 80944 --- [RMI TCP Connection(7)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2019-11-12 14:39:06.917  INFO 80944 --- [RMI TCP Connection(7)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-11-12 14:39:06.927  INFO 80944 --- [RMI TCP Connection(7)-127.0.0.1] org.mongodb.driver.connection            : Closed connection [connectionId{localValue:2, serverValue:78}] to localhost:27017 because the pool has been closed.
