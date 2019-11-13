@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.infy.dto.Address;
+import com.infy.error.AddressError;
 import com.infy.exception.AddressException;
 import com.infy.service.AddressService;
 
@@ -23,64 +24,47 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/address")
+@RequestMapping("/addresses")
 public class AddressController {
 	
 	@Autowired
 	private AddressService addressService;
 	
 	@PostMapping
-	ResponseEntity<Address> addAddress(@RequestBody Address address){
+	ResponseEntity<Address> addAddress(@RequestBody Address addressIn){
 		log.info("Begin: addAddress()");
 		
-		Address res = addressService.addAddress(address);
+		Address addressOut = addressService.addAddress(addressIn);
 		
 		log.info("End: addAddress()");
-		return new ResponseEntity<Address>(res,HttpStatus.CREATED);
+		return new ResponseEntity<Address>(addressOut,HttpStatus.CREATED);
 	}
 	
 	@PutMapping
-	ResponseEntity<Address> updateAddress(@RequestBody Address address){
+	void updateAddress(@RequestBody Address addressIn) throws AddressException{
 		log.info("Begin: updateAddress()");
 		
-		Address res = null;
-		try {
-			res = addressService.updateAddress(address);
-		}catch(AddressException e) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
-		}
+		addressService.updateAddress(addressIn);
 		
 		log.info("End: updateAddress()");
-		return new ResponseEntity<Address>(res, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/{customerId}")
-	ResponseEntity<String> deleteAddress(@PathVariable String customerId){
+	void deleteAddress(@PathVariable String customerIdIn) throws AddressException{
 		log.info("Begin: deleteAddress()");
 		
-		String res = null;
-		try {
-			res = addressService.deleteAddress(customerId);
-		}catch(AddressException e) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
-		}
+		addressService.deleteAddress(customerIdIn);
 		
 		log.info("End: deleteAddress()");
-		return new ResponseEntity<String>(res, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{customerId}")
-	ResponseEntity<Address> findAddressByCustomerId(@PathVariable String customerId){
+	ResponseEntity<Address> findAddressByCustomerId(@PathVariable String customerId) throws AddressException{
 		log.info("Begin: findAddressByCustomerId()");
 		
-		Address res = null;
-		try {
-			res = addressService.findAddressByCustomerId(customerId);
-		}catch(AddressException e) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
-		}
-		
+		Address address = addressService.findAddressByCustomerId(customerId);
+
 		log.info("End: findAddressByCustomerId()");
-		return new ResponseEntity<Address>(res, HttpStatus.OK);
+		return new ResponseEntity<Address>(address, HttpStatus.OK);
 	}
 }

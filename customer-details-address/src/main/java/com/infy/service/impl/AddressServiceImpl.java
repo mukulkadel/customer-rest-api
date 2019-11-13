@@ -39,12 +39,12 @@ public class AddressServiceImpl implements AddressService {
 	}
 
 	@Override
-	public Address updateAddress(Address address) throws AddressException {
+	public void updateAddress(Address address) throws AddressException {
 		log.info("Start: updateAddress()");
 		
 		AddressDocument document = addressRepository.findByCustomerId(address.getCustomerId());
 		if (document == null)
-			throw new AddressException(AddressError.INVALID_CUSTOMER_ID);
+			throw new AddressException(AddressError.INVALID_CUSTOMER_ID_MESSAGE);
 		document.setCity(address.getCity());
 		document.setCountry(address.getCountry());
 		document.setState(address.getState());
@@ -53,21 +53,19 @@ public class AddressServiceImpl implements AddressService {
 		addressRepository.save(document);
 		
 		log.info("End: updateAddress()");
-		return address;
 	}
 
 	@Override
-	public String deleteAddress(String customerId) throws AddressException {
+	public void deleteAddress(String customerId) throws AddressException {
 		log.info("Start: deleteAddress()");
 		
 		AddressDocument document = addressRepository.findByCustomerId(customerId);
 		if (document == null)
-			throw new AddressException(AddressError.INVALID_CUSTOMER_ID);
+			throw new AddressException(AddressError.INVALID_CUSTOMER_ID_MESSAGE);
 		
 		addressRepository.delete(document);
 		
 		log.info("End: deleteAddress()");
-		return customerId;
 	}
 
 	@Override
@@ -76,7 +74,7 @@ public class AddressServiceImpl implements AddressService {
 		
 		AddressDocument document = addressRepository.findByCustomerId(customerId);
 		if (document == null)
-			throw new AddressException(AddressError.INVALID_CUSTOMER_ID);
+			throw new AddressException(AddressError.INVALID_CUSTOMER_ID_MESSAGE);
 		
 		Address address = Converter.toAddress(document);
 		

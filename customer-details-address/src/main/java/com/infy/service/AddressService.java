@@ -7,8 +7,8 @@ import com.infy.exception.AddressException;
 
 public interface AddressService {
 	Address addAddress(Address address);
-	Address updateAddress(Address address) throws AddressException;
-	String deleteAddress(String customerId) throws AddressException;
+	void updateAddress(Address address) throws AddressException;
+	void deleteAddress(String customerId) throws AddressException;
 	Address findAddressByCustomerId(String customerId) throws AddressException;
 	List<Address> findAllAddress();
 }

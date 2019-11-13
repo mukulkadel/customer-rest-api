@@ -1,4 +1,4 @@
-package com.infy.service;
+package com.infy.service.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,32 +16,34 @@ import com.infy.dto.Customer;
 import com.infy.error.CustomerError;
 import com.infy.exception.CustomerException;
 import com.infy.repository.CustomerRepository;
+import com.infy.service.CustomerService;
 import com.infy.util.Converter;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
 	
 	@Autowired
 	CustomerRepository customerRepository;
-	
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Override
 	public Customer addCustomer(Customer customer) {
-		logger.info("Begin: addCustomer()");
+		log.info("Begin: addCustomer()");
 		
 		CustomerDocument document = Converter.toCustomerEntity(customer);
 		customerRepository.save(document);
 		customer = Converter.toCustomer(document);
 		customer.setPassword(null);
-		logger.info("End: addCustomer()");
+		log.info("End: addCustomer()");
 		return customer;
 	}
 
 	@Override
-	public Customer updateCustomer(Customer customer) throws CustomerException{
-		logger.info("Begin: updateCustomer()");
+	public void updateCustomer(Customer customer) throws CustomerException{
+		log.info("Begin: updateCustomer()");
 		CustomerDocument document = customerRepository.findByCustomerId(customer.getCustomerId());
 		if(document==null) 
 			throw new CustomerException(CustomerError.INVALID_CUSTOMER_ID);
@@ -53,65 +55,65 @@ public class CustomerServiceImpl implements CustomerService {
 		document.setPhoneNumber(customer.getPhoneNumber());
 		
 		customerRepository.save(document);
-		logger.info("Customer updated with id: " + customer.getCustomerId());
-		logger.info("End: updateCustomer()");
-		customer.setPassword(null);
-		return customer;
+		log.info("Customer updated with id: " + customer.getCustomerId());
+		log.info("End: updateCustomer()");
 	}
 
 	@Override
 	public String deleteCustomerByEmailAddress(String emailAddress) throws CustomerException {
-		logger.info("Begin: deleteCustomerByEmailAddress()");
+		log.info("Begin: deleteCustomerByEmailAddress()");
 		String customerId;
 		CustomerDocument document = customerRepository.findByEmailAddress(emailAddress);
 		if(document==null)
 			throw new CustomerException(CustomerError.INVALID_EMAIL_ID);
+		
 		customerId = document.getCustomerId();
 		customerRepository.delete(document);
-		logger.info("End: deleteCustomerByEmailAddress()");
+		log.info("End: deleteCustomerByEmailAddress()");
 		return customerId;
 	}
 
 	@Override
 	public String deleteCustomerByCustomerId(String customerId) throws CustomerException {
-		logger.info("Begin: deleteCustomerByCustomerId()");
+		log.info("Begin: deleteCustomerByCustomerId()");
 		CustomerDocument document = customerRepository.findByCustomerId(customerId);
 		if(document==null)
 			throw new CustomerException(CustomerError.INVALID_CUSTOMER_ID);
+		
 		customerRepository.delete(document);
-		logger.info("End: deleteCustomerByCustomerId()");
+		log.info("End: deleteCustomerByCustomerId()");
 		return customerId;
 	}
 
 	@Override
 	public Customer findCustomerByEmailAddress(String emailAddress) throws CustomerException {
-		logger.info("Begin: findCustomerByEmailAddress()");
+		log.info("Begin: findCustomerByEmailAddress()");
 		CustomerDocument document = customerRepository.findByEmailAddress(emailAddress);
 		if(document==null)
 			throw new CustomerException(CustomerError.INVALID_EMAIL_ID);
 		
 		Customer customer = Converter.toCustomer(document);
 		customer.setPassword(null);
-		logger.info("End: findCustomerByEmailAddress()");
+		log.info("End: findCustomerByEmailAddress()");
 		return customer;
 	}
 
 	@Override
 	public Customer findCustomerByCustomerId(String customerId) throws CustomerException {
-		logger.info("Begin: findCustomerByCustomerId()");
+		log.info("Begin: findCustomerByCustomerId()");
 		CustomerDocument document = customerRepository.findByCustomerId(customerId);
 		if(document==null)
 			throw new CustomerException(CustomerError.INVALID_CUSTOMER_ID);
 		
 		Customer customer = Converter.toCustomer(document);
 		customer.setPassword(null);
-		logger.info("End: findCustomerByCustomerId()");
+		log.info("End: findCustomerByCustomerId()");
 		return customer;
 	}
 
 	@Override
 	public List<Customer> findCustomerByFirstNameOrLastName(String firstName, String lastName) throws CustomerException {
-		logger.info("Begin: findCustomerByFirstNameOrLastName()");
+		log.info("Begin: findCustomerByFirstNameOrLastName()");
 		List<CustomerDocument> documents = customerRepository.findByFirstNameOrLastName(firstName, lastName);
 		if(documents.isEmpty())
 			throw new CustomerException(CustomerError.INVALID_FIRSTNAME_OR_LASTNAME);
@@ -122,18 +124,18 @@ public class CustomerServiceImpl implements CustomerService {
 											customer.setPassword(null);
 											return customer;
 										}).collect(Collectors.toList());
-		logger.info("End: findCustomerByFirstNameOrLastName()");
+		log.info("End: findCustomerByFirstNameOrLastName()");
 		return customers;
 	}
 
 	@Override
 	public List<Customer> findAllCustomer() {
-		logger.info("Begin: findAllCustomer()");
+		log.info("Begin: findAllCustomer()");
 		List<CustomerDocument> documents = customerRepository.findAll();
 		List<Customer> customers = documents.stream()
 										.map(Converter::toCustomer)
 										.collect(Collectors.toList());
-		logger.info("End: findAllCustomer()");
+		log.info("End: findAllCustomer()");
 		return customers;
 	}
 

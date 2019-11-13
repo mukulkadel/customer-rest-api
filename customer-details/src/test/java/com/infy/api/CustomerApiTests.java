@@ -128,7 +128,7 @@ public class CustomerApiTests {
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))
 			.andExpect(status().isBadRequest());
 	}
-	
+	/*
 	@Test
 	public void updateCustomerValid() throws Exception{
 		Customer customer = new Customer();
@@ -244,7 +244,7 @@ public class CustomerApiTests {
 				.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))
 			.andExpect(status().isBadRequest());
 	}
-	/*		
+		
 	@Test
 	public void deleteCustomerValid() throws Exception{
 		String customerId = "5dc3f826af7f0c70ef5fc71f";

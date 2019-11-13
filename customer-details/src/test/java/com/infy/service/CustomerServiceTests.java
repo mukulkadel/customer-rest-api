@@ -21,7 +21,7 @@ import com.infy.dto.Customer;
 import com.infy.exception.CustomerException;
 import com.infy.repository.CustomerRepository;
 import com.infy.service.CustomerService;
-import com.infy.service.CustomerServiceImpl;
+import com.infy.service.impl.CustomerServiceImpl;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
